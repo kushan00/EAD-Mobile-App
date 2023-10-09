@@ -135,7 +135,7 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/customerEmail1"
+                            android:id="@+id/user_nic"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
 
@@ -173,7 +173,7 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/customerPhone1"
+                            android:id="@+id/user_password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
@@ -233,7 +233,7 @@
                     android:orientation="horizontal">
 
                     <ImageButton
-                        android:id="@+id/save_button"
+                        android:id="@+id/login_button"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"

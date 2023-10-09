@@ -31,7 +31,7 @@ public class UpdatePhone extends AppCompatActivity {
         cus = findViewById(R.id.cus);
         order = findViewById(R.id.order);
         sup = findViewById(R.id.sup);
-        save_button = findViewById(R.id.save_button);
+        save_button = findViewById(R.id.login_button);
         back_button = findViewById(R.id.back_button);
 
         getAndSetIntentData();

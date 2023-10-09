@@ -83,7 +83,7 @@ tools:context=".SummaryActivity">
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/customerEmail1"
+                android:id="@+id/user_nic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -121,7 +121,7 @@ tools:context=".SummaryActivity">
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/customerPhone1"
+                android:id="@+id/user_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +31,7 @@ public class UpdateQuantity extends AppCompatActivity {
         cus = findViewById(R.id.cus);
         order = findViewById(R.id.order);
         sup = findViewById(R.id.sup);
-        save_button = findViewById(R.id.save_button);
+        save_button = findViewById(R.id.login_button);
         back_button = findViewById(R.id.back_button);
 
         getAndSetIntentData();

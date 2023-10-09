@@ -20,10 +20,10 @@ public class AddCustomer extends AppCompatActivity {
         setContentView(R.layout.activity_add_customer);
 
         customerName = findViewById(R.id.customerName1);
-        customerEmail = findViewById(R.id.customerEmail1);
-        customerPhone = findViewById(R.id.customerPhone1);
+        customerEmail = findViewById(R.id.user_nic);
+        customerPhone = findViewById(R.id.user_password);
         customerJoinedDate = findViewById(R.id.customerJoinedDate1);
-        save_button = findViewById(R.id.save_button);
+        save_button = findViewById(R.id.login_button);
         stock = findViewById(R.id.stock);
         cus = findViewById(R.id.cus);
         order = findViewById(R.id.order);
