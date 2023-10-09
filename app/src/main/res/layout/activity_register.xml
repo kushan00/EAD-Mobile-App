@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".SupplierMainActivity"
-    tools:ignore="ExtraText">
+    tools:context=".RegisterActivity">
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -16,7 +16,7 @@
         android:layout_marginEnd="25dp"
         android:background="@drawable/white_background"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topView">
@@ -142,7 +142,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/joinedDate"
@@ -161,6 +161,37 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/customerJoinedDate1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/profilepasswrod"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                app:boxBackgroundColor="@color/textbox"
+                app:boxStrokeColor="@color/black"
+                app:color="@color/black"
+                app:hintTextAppearance="@style/TextLabel"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/customerpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -211,6 +242,14 @@
             android:background="#808080" />
 
 
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:alpha="0.5"
+            android:background="#808080" />
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="62dp"
@@ -236,96 +275,58 @@
 
     <View
         android:id="@+id/topView"
-        android:layout_width="0dp"
-        android:layout_height="162dp"
+        android:layout_width="406dp"
+        android:layout_height="152dp"
         android:background="@color/colorBar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <ImageButton
+        android:id="@+id/imageBackButtonEditOrder2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:contentDescription="@string/top_icon"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backbuttonorder" />
 
     <TextView
         android:id="@+id/topText2"
-        android:layout_width="99dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:text="Profile"
+        android:layout_width="120dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/register_text"
         android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageV5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageV5"
+        android:layout_width="93dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="90dp"
+        android:contentDescription="@string/top_icon"
         app:layout_constraintBottom_toBottomOf="@+id/topView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
-        app:layout_constraintStart_toStartOf="@+id/topView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/topText2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="417dp"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorBar"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" >
-
-        <ImageButton
-            android:id="@+id/stock"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="50dp"
-            android:adjustViewBounds="true"
-            android:background="@null"
-            android:contentDescription="@string/stock"
-            android:scaleType="fitCenter"
-            android:src="@drawable/company1"
-            tools:ignore="DuplicateSpeakableTextCheck" />
-
-        <ImageButton
-            android:id="@+id/order"
-            android:layout_width="54dp"
-            android:layout_height="52dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="85dp"
-            android:adjustViewBounds="true"
-            android:background="@null"
-            android:contentDescription="@string/orders"
-            android:scaleType="fitCenter"
-            android:src="@drawable/order" />
-
-        <ImageButton
-            android:id="@+id/sup"
-            android:layout_width="52dp"
-            android:layout_height="54dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="80dp"
-            android:adjustViewBounds="true"
-            android:background="@null"
-            android:contentDescription="@string/supplier"
-            android:scaleType="fitCenter"
-            android:src="@drawable/user" />
-
-
-    </LinearLayout>
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/user" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

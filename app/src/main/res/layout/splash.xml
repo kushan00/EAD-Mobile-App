@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/atma_semibold"
-            android:text="@string/anything"
+            android:text="@string/train_buddy"
             android:textSize="65sp"
             android:textStyle="bold" />
     </LinearLayout>

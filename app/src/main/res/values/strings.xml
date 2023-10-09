@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Anything</string>
+    <string name="app_name">Train Buddy</string>
     <string name="top_icon">Back</string>
     <string name="stock_id">Product ID:</string>
     <string name="stock_id_entry">Product ID</string>
@@ -61,7 +61,7 @@
     <string name="addimage">AddImage</string>
     <string name="add_quantity">Add Quantity</string>
     <string name="update_quantity">Update Quantity</string>
-    <string name="anything">AnyThing</string>
+    <string name="train_buddy">Train Buddy</string>
     <string name="admin_profile">Admin profile</string>
     <string name="admin_id">Admin ID:</string>
     <string name="adm01">ADM01</string>
@@ -177,5 +177,28 @@
         <item>Cleaning Equipment</item>
         <item>Pharmaceuticals</item>
     </string-array>
+
+    <string name="login_text">Login</string>
+    <string name="nic_hint">NIC</string>
+    <string name="password_hint">Pasword</string>
+
+    <string name="home_title">Train Buddy</string>
+    <string name="start_city">From City</string>
+    <string name="end_city">To City</string>
+    <string name="schedule_date">Date</string>
+    <string name="schedule_time">Time</string>
+
+    <string name="profile_name">Full name</string>
+    <string name="profile_email">Email</string>
+    <string name="profile_number">Number</string>
+    <string name="profile_nic">NIC</string>
+    <string name="profile_dob">DOB</string>
+
+    <string name="schedule_title">All Schedules</string>
+
+    <string name="register_text">Register</string>
+    <string name="register_nic_hint">NIC</string>
+    <string name="register_password_hint">Pasword</string>
+
 
 </resources>
