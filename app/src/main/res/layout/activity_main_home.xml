@@ -266,7 +266,7 @@
         app:layout_constraintStart_toStartOf="parent" >
 
         <ImageButton
-            android:id="@+id/stock"
+            android:id="@+id/navhome"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center_vertical"
@@ -279,7 +279,7 @@
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <ImageButton
-            android:id="@+id/order"
+            android:id="@+id/bookings"
             android:layout_width="54dp"
             android:layout_height="52dp"
             android:layout_gravity="center_vertical"
@@ -291,7 +291,7 @@
             android:src="@drawable/order" />
 
         <ImageButton
-            android:id="@+id/sup"
+            android:id="@+id/profile"
             android:layout_width="52dp"
             android:layout_height="54dp"
             android:layout_gravity="center_vertical"

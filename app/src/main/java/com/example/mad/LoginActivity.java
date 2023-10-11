@@ -50,42 +50,42 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 // Create a custom TrustManager that trusts all certificates
-        TrustManager[] trustAllCertificates = new TrustManager[]{
-                new X509TrustManager() {
-                    @Override
-                    public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-                    }
+//        TrustManager[] trustAllCertificates = new TrustManager[]{
+//                new X509TrustManager() {
+//                    @Override
+//                    public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+//                    }
+//
+//                    @Override
+//                    public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+//                    }
+//
+//                    @Override
+//                    public X509Certificate[] getAcceptedIssuers() {
+//                        return new X509Certificate[0];
+//                    }
+//                }
+//        };
 
-                    @Override
-                    public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-                    }
-
-                    @Override
-                    public X509Certificate[] getAcceptedIssuers() {
-                        return new X509Certificate[0];
-                    }
-                }
-        };
-
-// Create an SSLContext with the custom TrustManager
-        try {
-            SSLContext sslContext = SSLContext.getInstance("TLS");
-            sslContext.init(null, trustAllCertificates, new SecureRandom());
-
-            // Set the SSL socket factory for OkHttpClient
-            OkHttpClient.Builder builder = new OkHttpClient.Builder()
-                    .sslSocketFactory(sslContext.getSocketFactory(), (X509TrustManager) trustAllCertificates[0])
-                    .hostnameVerifier((hostname, session) -> true);
-
-            // Use this OkHttpClient for your requests
-            OkHttpClient client = builder.build();
-
-            // Create your request with this client
-            // ...
-
-        } catch (NoSuchAlgorithmException | KeyManagementException e) {
-            e.printStackTrace();
-        }
+//// Create an SSLContext with the custom TrustManager
+//        try {
+//            SSLContext sslContext = SSLContext.getInstance("TLS");
+//            sslContext.init(null, trustAllCertificates, new SecureRandom());
+//
+//            // Set the SSL socket factory for OkHttpClient
+//            OkHttpClient.Builder builder = new OkHttpClient.Builder()
+//                    .sslSocketFactory(sslContext.getSocketFactory(), (X509TrustManager) trustAllCertificates[0])
+//                    .hostnameVerifier((hostname, session) -> true);
+//
+//            // Use this OkHttpClient for your requests
+//            OkHttpClient client = builder.build();
+//
+//            // Create your request with this client
+//            // ...
+//
+//        } catch (NoSuchAlgorithmException | KeyManagementException e) {
+//            e.printStackTrace();
+//        }
         nicEditText = findViewById(R.id.user_nic);
         passwordEditText = findViewById(R.id.user_password);
         // Find the ImageButton by its ID
@@ -94,51 +94,51 @@ public class LoginActivity extends AppCompatActivity {
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nic = nicEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
-                // Create a JSON object with user data
-                JSONObject requestData = new JSONObject();
-                try {
-                    requestData.put("nic", nic);
-                    requestData.put("password", password);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                // Create a request queue for Volley
-                RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
-
-                // Create a JsonObjectRequest with POST method
-                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, LOGIN_URL, requestData,
-                        new Response.Listener<JSONObject>() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-                                    boolean isAuthenticated = response.getBoolean("authenticated");
-                                    if (isAuthenticated) {
+//                String nic = nicEditText.getText().toString();
+//                String password = passwordEditText.getText().toString();
+//                // Create a JSON object with user data
+//                JSONObject requestData = new JSONObject();
+//                try {
+//                    requestData.put("nic", nic);
+//                    requestData.put("password", password);
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                // Create a request queue for Volley
+//                RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
+//
+//                // Create a JsonObjectRequest with POST method
+//                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, LOGIN_URL, requestData,
+//                        new Response.Listener<JSONObject>() {
+//                            @Override
+//                            public void onResponse(JSONObject response) {
+//                                try {
+//                                    boolean isAuthenticated = response.getBoolean("authenticated");
+//                                    if (isAuthenticated) {
                                         // User authenticated successfully, navigate to the next activity
                                         Intent intent = new Intent(LoginActivity.this, MainHomeActivity.class);
                                         startActivity(intent);
-                                    } else {
-                                        // Authentication failed, show an error message
-                                        // You can display an error message to the user
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                // Handle network or other errors here
-                                error.printStackTrace();
-                            }
-                        }
-                );
-
-                // Add the request to the request queue
-                requestQueue.add(request);
+//                                    } else {
+//                                        // Authentication failed, show an error message
+//                                        // You can display an error message to the user
+//                                    }
+//                                } catch (JSONException e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//                        },
+//                        new Response.ErrorListener() {
+//                            @Override
+//                            public void onErrorResponse(VolleyError error) {
+//                                // Handle network or other errors here
+//                                error.printStackTrace();
+//                            }
+//                        }
+//                );
+//
+//                // Add the request to the request queue
+//                requestQueue.add(request);
             }
         });
     }
