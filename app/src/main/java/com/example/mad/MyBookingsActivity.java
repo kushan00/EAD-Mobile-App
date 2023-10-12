@@ -1,15 +1,24 @@
 package com.example.mad;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.mad.adapters.ReservationAdapter;
+import com.example.mad.models.ReservationItem;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyBookingsActivity extends AppCompatActivity {
 
     ImageButton navhomebutton, bookingsbutton, profilebutton;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +28,12 @@ public class MyBookingsActivity extends AppCompatActivity {
         navhomebutton = findViewById(R.id.navhome);
         bookingsbutton = findViewById(R.id.bookings);
         profilebutton = findViewById(R.id.profile);
+        recyclerView = findViewById(R.id.orderList);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<ReservationItem> reservationItems = createSampleReservationData();
+        ReservationAdapter adapter = new ReservationAdapter(this, reservationItems);
+        recyclerView.setAdapter(adapter);
 
         navhomebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,5 +59,13 @@ public class MyBookingsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private List<ReservationItem> createSampleReservationData() {
+        List<ReservationItem> reservationItems = new ArrayList<>();
+        reservationItems.add(new ReservationItem(1, "RES-001", "City X", "City Y", "9:00 AM", "Train A"));
+        reservationItems.add(new ReservationItem(2, "RES-002", "City Y", "City Z", "11:00 AM", "Train B"));
+        // Add more sample data as needed
+        return reservationItems;
     }
 }

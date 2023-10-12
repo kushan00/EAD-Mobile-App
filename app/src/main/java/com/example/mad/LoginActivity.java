@@ -2,6 +2,7 @@ package com.example.mad;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.content.Intent;
 import android.os.Bundle;
@@ -41,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText nicEditText;
     EditText passwordEditText;
     ImageButton login_button;
+
+    Button buttonEditOrder2;
 
     // Replace with your actual API endpoint
     private static final String LOGIN_URL = "https://10.0.2.2:8000/Account/login";
@@ -90,6 +93,16 @@ public class LoginActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.user_password);
         // Find the ImageButton by its ID
         login_button = findViewById(R.id.login_button);
+        buttonEditOrder2 = findViewById(R.id.buttonEditOrder2);
+
+
+        buttonEditOrder2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
