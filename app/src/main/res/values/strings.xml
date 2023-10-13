@@ -54,6 +54,8 @@
     <string name="baby_gift_set">Baby Gift Set</string>
     <string name="baby_products">Baby Products</string>
     <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
     <string name="welcome_back">Welcome Back,</string>
     <string name="admin">Admin</string>
     <string name="_69">69</string>
@@ -171,16 +173,10 @@
     <string name="peterparker">peterparker</string>
     <string name="maryjane">maryJane</string>
     <string name="Order_Details_Description">Description :</string>
-    <string-array name="cat">
-        <item>Food</item>
-        <item>Chemicals</item>
-        <item>Cleaning Equipment</item>
-        <item>Pharmaceuticals</item>
-    </string-array>
 
     <string name="login_text">Login</string>
     <string name="nic_hint">NIC</string>
-    <string name="password_hint">Pasword</string>
+    <string name="password_hint">Password</string>
 
     <string name="home_title">Train Buddy</string>
     <string name="start_city">From City</string>
@@ -188,17 +184,32 @@
     <string name="schedule_date">Date</string>
     <string name="schedule_time">Time</string>
 
-    <string name="profile_name">Full name</string>
-    <string name="profile_email">Email</string>
-    <string name="profile_number">Number</string>
-    <string name="profile_nic">NIC</string>
-    <string name="profile_dob">DOB</string>
+    <string name="profile_name">Saman Perera</string>
+    <string name="profile_email">saman@test.lk</string>
+    <string name="profile_number">0710656983</string>
+    <string name="profile_nic">216589713</string>
+    <string name="profile_dob">1998-10-12</string>
+    <string name="profile_address_hint">Colombo</string>
+    <string name="profile_gender_hint">Male</string>
+
+    <string name="register_name">Full name</string>
+    <string name="register_email">Email</string>
+    <string name="register_number">Number</string>
+    <string name="register_nic">NIC</string>
+    <string name="register_dob">DOB</string>
+    <string name="register_address_hint">Address</string>
+    <string name="register_gender_hint">Gender</string>
 
     <string name="schedule_title">All Schedules</string>
-
+    <string name="update_profile_text">Update Profile</string>
     <string name="register_text">Register</string>
+
+    <string name="user_profile_text">User Profile</string>
+
     <string name="register_nic_hint">NIC</string>
-    <string name="register_password_hint">Pasword</string>
+    <string name="register_password_hint">Password</string>
+    <string name="Update">Update</string>
+    <string name="register">Register</string>
 
 
 </resources>

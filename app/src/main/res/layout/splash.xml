@@ -21,7 +21,7 @@
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:contentDescription="@string/top_icon"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/train" />
 
         <TextView
             android:id="@+id/textView2"

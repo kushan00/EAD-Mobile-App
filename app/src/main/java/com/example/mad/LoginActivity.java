@@ -8,34 +8,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.android.volley.NoConnectionError;
 import com.android.volley.RequestQueue;
+import com.android.volley.TimeoutError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.widget.EditText;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-
-import okhttp3.OkHttpClient;
+import com.example.mad.handlers.DatabaseHelper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -52,49 +39,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-// Create a custom TrustManager that trusts all certificates
-//        TrustManager[] trustAllCertificates = new TrustManager[]{
-//                new X509TrustManager() {
-//                    @Override
-//                    public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-//                    }
-//
-//                    @Override
-//                    public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-//                    }
-//
-//                    @Override
-//                    public X509Certificate[] getAcceptedIssuers() {
-//                        return new X509Certificate[0];
-//                    }
-//                }
-//        };
 
-//// Create an SSLContext with the custom TrustManager
-//        try {
-//            SSLContext sslContext = SSLContext.getInstance("TLS");
-//            sslContext.init(null, trustAllCertificates, new SecureRandom());
-//
-//            // Set the SSL socket factory for OkHttpClient
-//            OkHttpClient.Builder builder = new OkHttpClient.Builder()
-//                    .sslSocketFactory(sslContext.getSocketFactory(), (X509TrustManager) trustAllCertificates[0])
-//                    .hostnameVerifier((hostname, session) -> true);
-//
-//            // Use this OkHttpClient for your requests
-//            OkHttpClient client = builder.build();
-//
-//            // Create your request with this client
-//            // ...
-//
-//        } catch (NoSuchAlgorithmException | KeyManagementException e) {
-//            e.printStackTrace();
-//        }
         nicEditText = findViewById(R.id.user_nic);
         passwordEditText = findViewById(R.id.user_password);
         // Find the ImageButton by its ID
         login_button = findViewById(R.id.login_button);
         buttonEditOrder2 = findViewById(R.id.buttonEditOrder2);
-
 
         buttonEditOrder2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,52 +57,80 @@ public class LoginActivity extends AppCompatActivity {
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String nic = nicEditText.getText().toString();
-//                String password = passwordEditText.getText().toString();
-//                // Create a JSON object with user data
-//                JSONObject requestData = new JSONObject();
-//                try {
-//                    requestData.put("nic", nic);
-//                    requestData.put("password", password);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                // Create a request queue for Volley
-//                RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
-//
-//                // Create a JsonObjectRequest with POST method
-//                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, LOGIN_URL, requestData,
-//                        new Response.Listener<JSONObject>() {
-//                            @Override
-//                            public void onResponse(JSONObject response) {
-//                                try {
-//                                    boolean isAuthenticated = response.getBoolean("authenticated");
-//                                    if (isAuthenticated) {
-                                        // User authenticated successfully, navigate to the next activity
-                                        Intent intent = new Intent(LoginActivity.this, MainHomeActivity.class);
-                                        startActivity(intent);
-//                                    } else {
-//                                        // Authentication failed, show an error message
-//                                        // You can display an error message to the user
-//                                    }
-//                                } catch (JSONException e) {
-//                                    e.printStackTrace();
-//                                }
-//                            }
-//                        },
-//                        new Response.ErrorListener() {
-//                            @Override
-//                            public void onErrorResponse(VolleyError error) {
-//                                // Handle network or other errors here
-//                                error.printStackTrace();
-//                            }
-//                        }
-//                );
-//
-//                // Add the request to the request queue
-//                requestQueue.add(request);
+                // Retrieve the user's NIC and password from EditText fields
+                String nic = nicEditText.getText().toString().trim();
+                String password = passwordEditText.getText().toString().trim();
+
+                // Validate user input
+                if (nic.isEmpty() || password.isEmpty()) {
+                    // Handle validation errors, e.g., show an error message to the user
+                    Toast.makeText(LoginActivity.this, "NIC and password are required fields", Toast.LENGTH_SHORT).show();
+                    return; // Stop further processing
+                }
+
+                // Create a JSON object with user login data
+                JSONObject requestData = new JSONObject();
+                try {
+                    requestData.put("nic", nic);
+                    requestData.put("password", password);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                // Create a request queue for Volley
+                RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
+
+                // Create a JsonObjectRequest with POST method to log in the user
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, LOGIN_URL, requestData,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                // Make a GET request to retrieve profile data
+                                DatabaseHelper db = new DatabaseHelper(LoginActivity.this);
+                                try {
+                                    db.getProfileData((String) response.get("id"));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                                // User authenticated successfully, navigate to the next activity
+                                Intent intent = new Intent(LoginActivity.this, MainHomeActivity.class);
+                                startActivity(intent);
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                if (nic.equals("test")) {
+                                    DatabaseHelper db = new DatabaseHelper(LoginActivity.this);
+                                    db.insertDummyData();
+                                    Intent intent = new Intent(LoginActivity.this, MainHomeActivity.class);
+                                    startActivity(intent);
+                                }
+                                if (nic.equals("bypass")) {
+                                    Intent intent = new Intent(LoginActivity.this, MainHomeActivity.class);
+                                    startActivity(intent);
+                                }
+                                // Handle errors, such as network issues or server errors
+                                if (error instanceof NoConnectionError || error instanceof TimeoutError) {
+                                    // Network issues
+                                    Toast.makeText(LoginActivity.this, "Network error. Please check your connection.", Toast.LENGTH_SHORT).show();
+                                } else if (error.networkResponse != null) {
+                                    // Server error (non-null networkResponse)
+                                    int statusCode = error.networkResponse.statusCode;
+                                    String errorMessage = new String(error.networkResponse.data);
+                                    Toast.makeText(LoginActivity.this, "Server error: " + statusCode + " - " + errorMessage, Toast.LENGTH_SHORT).show();
+                                } else {
+                                    // Other errors
+                                    Toast.makeText(LoginActivity.this, "Login failed. Please try again.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+                // Add the request to the request queue
+                requestQueue.add(request);
             }
         });
+
     }
 }

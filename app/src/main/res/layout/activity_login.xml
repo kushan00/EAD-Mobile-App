@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-
     <View
         android:id="@+id/topView"
         android:layout_width="0dp"
@@ -19,12 +18,17 @@
 
     <TextView
         android:id="@+id/topText2"
-        android:layout_width="91dp"
-        android:layout_height="44dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:shadowColor="#FFFFFF"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="10"
         android:text="@string/login_text"
         android:textColor="@android:color/black"
-        android:textSize="30sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageV5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
-        android:background="@drawable/white_background"
+        android:background="@drawable/login_background"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/nic_hint"
-                app:boxBackgroundColor="@color/textbox"
+                app:boxBackgroundColor="@color/textbox1"
                 app:boxStrokeColor="@color/black"
                 app:color="@color/black"
                 app:hintTextAppearance="@style/TextLabel"
@@ -122,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password_hint"
-                app:boxBackgroundColor="@color/textbox"
+                app:boxBackgroundColor="@color/textbox1"
                 app:boxStrokeColor="@color/black"
                 app:color="@color/black"
                 app:hintTextAppearance="@style/TextLabel"
@@ -135,7 +139,7 @@
                     android:id="@+id/user_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:inputType="textPassword" />
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -171,7 +175,7 @@
                 android:background="@null"
                 android:contentDescription="@string/save"
                 android:scaleType="fitCenter"
-                android:src="@drawable/savec" />
+                android:src="@drawable/log1" />
 
 
         </LinearLayout>
@@ -184,17 +188,19 @@
         android:layout_height="46dp"
         android:layout_weight="1.0"
         android:adjustViewBounds="true"
-        android:background="@null"
+        android:background="@drawable/login_background"
         android:contentDescription="@string/save"
-        android:hint="Register"
+        android:hint="@string/register"
         android:scaleType="fitCenter"
-        android:src="@drawable/diskette1"
+        android:text="@string/register"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.422" />
+        app:layout_constraintVertical_bias="0.256"
+        tools:ignore="ContentDescription" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

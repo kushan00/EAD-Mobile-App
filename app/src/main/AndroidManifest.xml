@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mad">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity android:name=".SummaryActivity"></activity>
         <activity android:name=".ResevationHistoryActivity" />
         <activity android:name=".MyBookingsActivity" />
@@ -19,60 +21,7 @@
         <activity android:name=".MainProfileActivity" />
         <activity android:name=".MainHomeActivity" />
         <activity android:name=".LoginActivity" />
-        <activity
-            android:name=".Home"
-            android:exported="true" />
-        <activity
-            android:name=".UpdateQuantity"
-            android:exported="true" />
-        <activity
-            android:name=".DetailsStock"
-            android:exported="true" />
-        <activity
-            android:name=".UpdateStock"
-            android:exported="true" />
-        <activity
-            android:name=".AddStock"
-            android:exported="true" />
-        <activity
-            android:name=".AddCustomer"
-            android:exported="true" />
-        <activity
-            android:name=".CustomerMainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".DetailsCustomer"
-            android:exported="true" />
-        <activity
-            android:name=".UpdateCustomer"
-            android:exported="true" />
-        <activity
-            android:name=".UpdatePhone"
-            android:exported="true" />
-        <activity
-            android:name=".AddSupplier"
-            android:exported="true" />
-        <activity
-            android:name=".DetailsSupplier"
-            android:exported="true" />
-        <activity
-            android:name=".SupplierMainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".UpdateSupplier"
-            android:exported="true" />
-        <activity
-            android:name=".add_orders"
-            android:exported="true" />
-        <activity
-            android:name=".details_order"
-            android:exported="true" />
-        <activity
-            android:name=".edit_orders"
-            android:exported="true" />
-        <activity
-            android:name=".OrderMainActivity"
-            android:exported="true" />
+        <activity android:name=".UpdateProfileActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

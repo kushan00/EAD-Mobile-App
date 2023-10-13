@@ -35,7 +35,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/profile_name"
+                android:hint="@string/name_entry"
                 app:boxBackgroundColor="@color/textbox"
                 app:boxStrokeColor="@color/black"
                 app:color="@color/black"
@@ -48,7 +48,13 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/customerName1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="none"
+                    android:longClickable="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -73,7 +79,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/profile_email"
+                android:hint="@string/email_entry"
                 app:boxBackgroundColor="@color/textbox"
                 app:boxStrokeColor="@color/black"
                 app:color="@color/black"
@@ -84,9 +90,15 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/user_nic"
+                    android:id="@+id/user_email"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="none"
+                    android:longClickable="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -111,7 +123,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/profile_number"
+                android:hint="@string/register_number"
                 app:boxBackgroundColor="@color/textbox"
                 app:boxStrokeColor="@color/black"
                 app:color="@color/black"
@@ -122,11 +134,15 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/user_password"
+                    android:id="@+id/user_number"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:maxLength="10" />
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="none"
+                    android:longClickable="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -143,14 +159,14 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/joinedDate"
+                android:id="@+id/nic"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/profile_nic"
+                android:hint="@string/nic_hint"
                 app:boxBackgroundColor="@color/textbox"
                 app:boxStrokeColor="@color/black"
                 app:color="@color/black"
@@ -161,9 +177,101 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/customerJoinedDate1"
+                    android:id="@+id/user_nic_profile"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="none"
+                    android:longClickable="false" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:alpha="0.5"
+            android:background="#808080" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/addres"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_address_hint"
+                app:boxBackgroundColor="@color/textbox"
+                app:boxStrokeColor="@color/black"
+                app:color="@color/black"
+                app:hintTextAppearance="@style/TextLabel"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_address_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="none"
+                    android:longClickable="false" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:alpha="0.5"
+            android:background="#808080" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/gender"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_gender_hint"
+                app:boxBackgroundColor="@color/textbox"
+                app:boxStrokeColor="@color/black"
+                app:color="@color/black"
+                app:hintTextAppearance="@style/TextLabel"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_gender_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="none"
+                    android:longClickable="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -187,7 +295,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/profile_dob"
+                android:hint="@string/register_dob"
                 app:boxBackgroundColor="@color/textbox"
                 app:boxStrokeColor="@color/black"
                 app:color="@color/black"
@@ -200,7 +308,13 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/customerdob"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="none"
+                    android:longClickable="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -214,22 +328,33 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="62dp"
+            android:layout_height="50dp"
             android:layout_margin="5dp"
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/login_button"
+                android:id="@+id/edit_button"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1.0"
                 android:adjustViewBounds="true"
                 android:background="@null"
-                android:contentDescription="@string/save"
+                android:contentDescription="@string/edit"
                 android:scaleType="fitCenter"
-                android:src="@drawable/savec" />
+                android:src="@drawable/editc" />
 
+            <ImageButton
+                android:id="@+id/delete_button"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1.0"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:contentDescription="@string/delete"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bin" />
 
         </LinearLayout>
 
@@ -238,44 +363,58 @@
     <View
         android:id="@+id/topView"
         android:layout_width="0dp"
-        android:layout_height="162dp"
+        android:layout_height="80dp"
         android:background="@color/colorBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="36dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:contentDescription="@string/top_icon"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/topView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backbuttonorder" />
+
     <TextView
         android:id="@+id/topText2"
-        android:layout_width="99dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:text="Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:shadowColor="#FFFFFF"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="10"
+        android:text="@string/user_profile_text"
         android:textColor="@android:color/black"
-        android:textSize="30sp"
+        android:textSize="38sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/topView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="@+id/topView"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/topText2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
+    <ImageButton
+        android:id="@+id/logoutButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="36dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:contentDescription="@string/top_icon"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/topView"
+        app:layout_constraintEnd_toEndOf="@+id/topView"
+        app:layout_constraintTop_toTopOf="@+id/topView"
+        app:srcCompat="@drawable/logout1" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -286,7 +425,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" >
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
             android:id="@+id/navhome"
